@@ -1,0 +1,17 @@
+import json
+import requests
+import pandas as pd
+from IPython.display import display
+
+url = 'https://github.com/gik-squad/datasets'
+geo_shapes = f'{url}/shapes.json'
+geo_shapes = json.loads(requests.get(geo_shapes).text)
+
+m = folium.Map(location=[42.3154, 43.3569], tiles='cartodbpositron',
+zoom_start=7)
+
+
+folium.LayerControl().add_to(m)
+
+m
+display(m)
